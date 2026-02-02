@@ -1,0 +1,2 @@
+cells_raw,genes_raw,cells_retained,genes_retained,median_genes_per_cell,median_umis_per_cell,median_pct_mito,min_genes_filter,min_cells_filter,max_pct_mito_filter
+2700,32738,2694,13714,817.0,2200.0,2.0275254249572754,200,3,10.0

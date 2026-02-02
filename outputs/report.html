@@ -1,0 +1,596 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>PBMC3k QC + Clustering Review Report</title>
+<style>
+  body { font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Arial,sans-serif; margin: 24px; }
+  table { border-collapse: collapse; }
+  th, td { border: 1px solid #ddd; padding: 6px 10px; }
+  th { background: #f6f6f6; }
+  img { max-width: 100%; height: auto; border: 1px solid #eee; padding: 6px; margin: 6px 0; }
+  code { background: #f6f6f6; padding: 2px 4px; }
+</style>
+</head>
+<body>
+<h1>PBMC3k QC + Clustering Review Report</h1>
+<p><strong>Generated:</strong> 2026-01-31 13:51:53
+<strong>Artifacts:</strong> <code>outputs</code></p>
+<h2>1) Run Summary</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">cells_retained</th>
+<th style="text-align: right;">genes_retained</th>
+<th style="text-align: right;">hvgs_used</th>
+<th style="text-align: right;">clusters</th>
+<th style="text-align: right;">leiden_resolution</th>
+<th style="text-align: right;">n_neighbors</th>
+<th style="text-align: right;">n_pcs</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">2694</td>
+<td style="text-align: right;">13714</td>
+<td style="text-align: right;">2000</td>
+<td style="text-align: right;">9</td>
+<td style="text-align: right;">0.6</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">30</td>
+</tr>
+</tbody>
+</table>
+<h2>2) QC Summary</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">cells_raw</th>
+<th style="text-align: right;">genes_raw</th>
+<th style="text-align: right;">cells_retained</th>
+<th style="text-align: right;">genes_retained</th>
+<th style="text-align: right;">median_genes_per_cell</th>
+<th style="text-align: right;">median_umis_per_cell</th>
+<th style="text-align: right;">median_pct_mito</th>
+<th style="text-align: right;">min_genes_filter</th>
+<th style="text-align: right;">min_cells_filter</th>
+<th style="text-align: right;">max_pct_mito_filter</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">2700</td>
+<td style="text-align: right;">32738</td>
+<td style="text-align: right;">2694</td>
+<td style="text-align: right;">13714</td>
+<td style="text-align: right;">817</td>
+<td style="text-align: right;">2200</td>
+<td style="text-align: right;">2.02753</td>
+<td style="text-align: right;">200</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">10</td>
+</tr>
+</tbody>
+</table>
+<h2>3) Key Visualizations</h2>
+<h3>QC violin (before filtering)</h3>
+<p><img alt="QC violin (before filtering)" src="figures/qc_violin_before.png" /></p>
+<h3>QC scatter: counts vs % mito (before)</h3>
+<p><img alt="QC scatter: counts vs % mito (before)" src="figures/qc_scatter_counts_vs_mt_before.png" /></p>
+<h3>QC scatter: counts vs genes (before)</h3>
+<p><img alt="QC scatter: counts vs genes (before)" src="figures/qc_scatter_counts_vs_genes_before.png" /></p>
+<h3>QC violin (after filtering)</h3>
+<p><img alt="QC violin (after filtering)" src="figures/qc_violin_after.png" /></p>
+<h3>Highly variable genes (HVGs)</h3>
+<p><img alt="Highly variable genes (HVGs)" src="figures/hvgs.png" /></p>
+<h3>PCA variance ratio</h3>
+<p><img alt="PCA variance ratio" src="figures/pca_variance_ratio.png" /></p>
+<h3>UMAP with Leiden clusters</h3>
+<p><img alt="UMAP with Leiden clusters" src="figures/umap_leiden.png" /></p>
+<h3>Top marker genes (per cluster)</h3>
+<p><img alt="Top marker genes (per cluster)" src="figures/marker_genes_top15.png" /></p>
+<h2>4) Top Marker Genes per Cluster</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">group</th>
+<th style="text-align: left;">names</th>
+<th style="text-align: right;">scores</th>
+<th style="text-align: right;">logfoldchanges</th>
+<th style="text-align: right;">pvals</th>
+<th style="text-align: right;">pvals_adj</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">0</td>
+<td style="text-align: left;">LTB</td>
+<td style="text-align: right;">23.5735</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: right;">7.20935e-123</td>
+<td style="text-align: right;">1.44187e-119</td>
+</tr>
+<tr>
+<td style="text-align: right;">0</td>
+<td style="text-align: left;">IL32</td>
+<td style="text-align: right;">21.3524</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: right;">3.70392e-101</td>
+<td style="text-align: right;">3.70392e-98</td>
+</tr>
+<tr>
+<td style="text-align: right;">0</td>
+<td style="text-align: left;">LDHB</td>
+<td style="text-align: right;">21.2273</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: right;">5.34033e-100</td>
+<td style="text-align: right;">3.56022e-97</td>
+</tr>
+<tr>
+<td style="text-align: right;">0</td>
+<td style="text-align: left;">CD3D</td>
+<td style="text-align: right;">19.4966</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: right;">1.17345e-84</td>
+<td style="text-align: right;">5.86725e-82</td>
+</tr>
+<tr>
+<td style="text-align: right;">0</td>
+<td style="text-align: left;">IL7R</td>
+<td style="text-align: right;">18.7173</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: right;">3.57914e-78</td>
+<td style="text-align: right;">1.19305e-75</td>
+</tr>
+<tr>
+<td style="text-align: right;">0</td>
+<td style="text-align: left;">CD3E</td>
+<td style="text-align: right;">16.2222</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: right;">3.51644e-59</td>
+<td style="text-align: right;">5.86074e-57</td>
+</tr>
+<tr>
+<td style="text-align: right;">0</td>
+<td style="text-align: left;">RPS29</td>
+<td style="text-align: right;">14.907</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: right;">2.97001e-50</td>
+<td style="text-align: right;">3.71251e-48</td>
+</tr>
+<tr>
+<td style="text-align: right;">0</td>
+<td style="text-align: left;">RPLP0</td>
+<td style="text-align: right;">14.8049</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: right;">1.36178e-49</td>
+<td style="text-align: right;">1.51308e-47</td>
+</tr>
+<tr>
+<td style="text-align: right;">0</td>
+<td style="text-align: left;">RPSA</td>
+<td style="text-align: right;">14.7977</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: right;">1.51659e-49</td>
+<td style="text-align: right;">1.59641e-47</td>
+</tr>
+<tr>
+<td style="text-align: right;">0</td>
+<td style="text-align: left;">RPS27A</td>
+<td style="text-align: right;">14.7758</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: right;">2.09777e-49</td>
+<td style="text-align: right;">2.09777e-47</td>
+</tr>
+<tr>
+<td style="text-align: right;">0</td>
+<td style="text-align: left;">CD2</td>
+<td style="text-align: right;">13.8078</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: right;">2.28709e-43</td>
+<td style="text-align: right;">2.07917e-41</td>
+</tr>
+<tr>
+<td style="text-align: right;">0</td>
+<td style="text-align: left;">JUNB</td>
+<td style="text-align: right;">13.5778</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: right;">5.42206e-42</td>
+<td style="text-align: right;">4.71484e-40</td>
+</tr>
+<tr>
+<td style="text-align: right;">0</td>
+<td style="text-align: left;">HINT1</td>
+<td style="text-align: right;">12.6683</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: right;">8.86459e-37</td>
+<td style="text-align: right;">6.78145e-35</td>
+</tr>
+<tr>
+<td style="text-align: right;">0</td>
+<td style="text-align: left;">TMEM66</td>
+<td style="text-align: right;">12.6552</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: right;">1.04714e-36</td>
+<td style="text-align: right;">7.47955e-35</td>
+</tr>
+<tr>
+<td style="text-align: right;">0</td>
+<td style="text-align: left;">NOSIP</td>
+<td style="text-align: right;">12.4456</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: right;">1.47798e-35</td>
+<td style="text-align: right;">1.0193e-33</td>
+</tr>
+<tr>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">MALAT1</td>
+<td style="text-align: right;">20.7492</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: right;">1.24667e-95</td>
+<td style="text-align: right;">1.24667e-92</td>
+</tr>
+<tr>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">RPL9</td>
+<td style="text-align: right;">19.7192</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: right;">1.47442e-86</td>
+<td style="text-align: right;">7.37209e-84</td>
+</tr>
+<tr>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">RPS3A</td>
+<td style="text-align: right;">18.4441</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: right;">5.8201e-76</td>
+<td style="text-align: right;">1.66289e-73</td>
+</tr>
+<tr>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">LDHB</td>
+<td style="text-align: right;">17.0839</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: right;">1.95435e-65</td>
+<td style="text-align: right;">3.55336e-63</td>
+</tr>
+<tr>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">RPS27A</td>
+<td style="text-align: right;">16.8286</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: right;">1.50654e-63</td>
+<td style="text-align: right;">2.31775e-61</td>
+</tr>
+<tr>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">RPS29</td>
+<td style="text-align: right;">15.7393</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: right;">8.13466e-56</td>
+<td style="text-align: right;">7.39515e-54</td>
+</tr>
+<tr>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">CCR7</td>
+<td style="text-align: right;">15.3896</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: right;">1.92074e-53</td>
+<td style="text-align: right;">1.60061e-51</td>
+</tr>
+<tr>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">BTG1</td>
+<td style="text-align: right;">13.8706</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: right;">9.54711e-44</td>
+<td style="text-align: right;">5.96694e-42</td>
+</tr>
+<tr>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">CD3D</td>
+<td style="text-align: right;">13.6756</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: right;">1.41966e-42</td>
+<td style="text-align: right;">8.35092e-41</td>
+</tr>
+<tr>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">RPSA</td>
+<td style="text-align: right;">13.4853</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: right;">1.90875e-41</td>
+<td style="text-align: right;">1.03176e-39</td>
+</tr>
+<tr>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">NPM1</td>
+<td style="text-align: right;">13.0944</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: right;">3.54287e-39</td>
+<td style="text-align: right;">1.81686e-37</td>
+</tr>
+<tr>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">TMEM66</td>
+<td style="text-align: right;">11.8762</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: right;">1.57421e-32</td>
+<td style="text-align: right;">6.84438e-31</td>
+</tr>
+<tr>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">EEF1B2</td>
+<td style="text-align: right;">11.834</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: right;">2.60571e-32</td>
+<td style="text-align: right;">1.10881e-30</td>
+</tr>
+<tr>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">RPL7</td>
+<td style="text-align: right;">11.6832</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: right;">1.55251e-31</td>
+<td style="text-align: right;">6.46877e-30</td>
+</tr>
+<tr>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">CD3E</td>
+<td style="text-align: right;">11.6644</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: right;">1.937e-31</td>
+<td style="text-align: right;">7.90614e-30</td>
+</tr>
+<tr>
+<td style="text-align: right;">2</td>
+<td style="text-align: left;">LYZ</td>
+<td style="text-align: right;">33.8668</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: right;">2.0564e-251</td>
+<td style="text-align: right;">4.1128e-248</td>
+</tr>
+<tr>
+<td style="text-align: right;">2</td>
+<td style="text-align: left;">S100A9</td>
+<td style="text-align: right;">33.7668</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: right;">6.06242e-250</td>
+<td style="text-align: right;">6.06242e-247</td>
+</tr>
+<tr>
+<td style="text-align: right;">2</td>
+<td style="text-align: left;">S100A8</td>
+<td style="text-align: right;">33.2433</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: right;">2.5511e-242</td>
+<td style="text-align: right;">1.70073e-239</td>
+</tr>
+<tr>
+<td style="text-align: right;">2</td>
+<td style="text-align: left;">TYROBP</td>
+<td style="text-align: right;">31.9302</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: right;">1.01636e-223</td>
+<td style="text-align: right;">5.08182e-221</td>
+</tr>
+<tr>
+<td style="text-align: right;">2</td>
+<td style="text-align: left;">FTL</td>
+<td style="text-align: right;">31.323</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: right;">2.27212e-215</td>
+<td style="text-align: right;">9.08846e-213</td>
+</tr>
+<tr>
+<td style="text-align: right;">2</td>
+<td style="text-align: left;">FCN1</td>
+<td style="text-align: right;">31.0282</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: right;">2.24756e-211</td>
+<td style="text-align: right;">7.49185e-209</td>
+</tr>
+<tr>
+<td style="text-align: right;">2</td>
+<td style="text-align: left;">CST3</td>
+<td style="text-align: right;">30.9576</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: right;">2.0091e-210</td>
+<td style="text-align: right;">5.7403e-208</td>
+</tr>
+<tr>
+<td style="text-align: right;">2</td>
+<td style="text-align: left;">S100A6</td>
+<td style="text-align: right;">30.4295</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: right;">2.23517e-203</td>
+<td style="text-align: right;">5.58792e-201</td>
+</tr>
+<tr>
+<td style="text-align: right;">2</td>
+<td style="text-align: left;">LGALS2</td>
+<td style="text-align: right;">30.4197</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: right;">3.01469e-203</td>
+<td style="text-align: right;">6.69931e-201</td>
+</tr>
+<tr>
+<td style="text-align: right;">2</td>
+<td style="text-align: left;">FTH1</td>
+<td style="text-align: right;">30.2579</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: right;">4.10442e-201</td>
+<td style="text-align: right;">7.46257e-199</td>
+</tr>
+<tr>
+<td style="text-align: right;">2</td>
+<td style="text-align: left;">LGALS1</td>
+<td style="text-align: right;">29.8808</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: right;">3.49132e-196</td>
+<td style="text-align: right;">5.81886e-194</td>
+</tr>
+<tr>
+<td style="text-align: right;">2</td>
+<td style="text-align: left;">GSTP1</td>
+<td style="text-align: right;">28.5921</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: right;">8.41538e-180</td>
+<td style="text-align: right;">1.29467e-177</td>
+</tr>
+<tr>
+<td style="text-align: right;">2</td>
+<td style="text-align: left;">GPX1</td>
+<td style="text-align: right;">28.5148</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: right;">7.66827e-179</td>
+<td style="text-align: right;">1.09547e-176</td>
+</tr>
+<tr>
+<td style="text-align: right;">2</td>
+<td style="text-align: left;">S100A4</td>
+<td style="text-align: right;">28.3134</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: right;">2.36092e-176</td>
+<td style="text-align: right;">3.1479e-174</td>
+</tr>
+<tr>
+<td style="text-align: right;">2</td>
+<td style="text-align: left;">AIF1</td>
+<td style="text-align: right;">28.1341</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: right;">3.74961e-174</td>
+<td style="text-align: right;">4.68701e-172</td>
+</tr>
+<tr>
+<td style="text-align: right;">3</td>
+<td style="text-align: left;">CD74</td>
+<td style="text-align: right;">29.3203</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: right;">5.72442e-189</td>
+<td style="text-align: right;">1.14488e-185</td>
+</tr>
+<tr>
+<td style="text-align: right;">3</td>
+<td style="text-align: left;">CD79A</td>
+<td style="text-align: right;">27.9879</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: right;">2.28292e-172</td>
+<td style="text-align: right;">2.28292e-169</td>
+</tr>
+<tr>
+<td style="text-align: right;">3</td>
+<td style="text-align: left;">HLA-DRA</td>
+<td style="text-align: right;">27.9163</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: right;">1.69153e-171</td>
+<td style="text-align: right;">1.12768e-168</td>
+</tr>
+<tr>
+<td style="text-align: right;">3</td>
+<td style="text-align: left;">CD79B</td>
+<td style="text-align: right;">26.5839</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: right;">1.04155e-155</td>
+<td style="text-align: right;">5.20777e-153</td>
+</tr>
+<tr>
+<td style="text-align: right;">3</td>
+<td style="text-align: left;">HLA-DPB1</td>
+<td style="text-align: right;">26.1459</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: right;">1.09754e-150</td>
+<td style="text-align: right;">4.39015e-148</td>
+</tr>
+<tr>
+<td style="text-align: right;">3</td>
+<td style="text-align: left;">HLA-DQA1</td>
+<td style="text-align: right;">25.3511</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: right;">8.74861e-142</td>
+<td style="text-align: right;">2.9162e-139</td>
+</tr>
+<tr>
+<td style="text-align: right;">3</td>
+<td style="text-align: left;">MS4A1</td>
+<td style="text-align: right;">25.2266</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: right;">2.0466e-140</td>
+<td style="text-align: right;">5.84742e-138</td>
+</tr>
+<tr>
+<td style="text-align: right;">3</td>
+<td style="text-align: left;">HLA-DRB1</td>
+<td style="text-align: right;">24.4995</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: right;">1.49433e-132</td>
+<td style="text-align: right;">3.73582e-130</td>
+</tr>
+<tr>
+<td style="text-align: right;">3</td>
+<td style="text-align: left;">HLA-DQB1</td>
+<td style="text-align: right;">24.3041</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: right;">1.77275e-130</td>
+<td style="text-align: right;">3.93944e-128</td>
+</tr>
+<tr>
+<td style="text-align: right;">3</td>
+<td style="text-align: left;">CD37</td>
+<td style="text-align: right;">24.249</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: right;">6.77771e-130</td>
+<td style="text-align: right;">1.35554e-127</td>
+</tr>
+<tr>
+<td style="text-align: right;">3</td>
+<td style="text-align: left;">HLA-DPA1</td>
+<td style="text-align: right;">24.163</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: right;">5.45607e-129</td>
+<td style="text-align: right;">9.92013e-127</td>
+</tr>
+<tr>
+<td style="text-align: right;">3</td>
+<td style="text-align: left;">HLA-DRB5</td>
+<td style="text-align: right;">20.1077</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: right;">6.32157e-90</td>
+<td style="text-align: right;">9.72549e-88</td>
+</tr>
+<tr>
+<td style="text-align: right;">3</td>
+<td style="text-align: left;">TCL1A</td>
+<td style="text-align: right;">18.4781</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: right;">3.09941e-76</td>
+<td style="text-align: right;">4.13254e-74</td>
+</tr>
+<tr>
+<td style="text-align: right;">3</td>
+<td style="text-align: left;">HLA-DMA</td>
+<td style="text-align: right;">16.892</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: right;">5.1529e-64</td>
+<td style="text-align: right;">5.72544e-62</td>
+</tr>
+<tr>
+<td style="text-align: right;">3</td>
+<td style="text-align: left;">LINC00926</td>
+<td style="text-align: right;">16.642</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: right;">3.45646e-62</td>
+<td style="text-align: right;">3.45646e-60</td>
+</tr>
+</tbody>
+</table>
+<p>Full table: <code>outputs/tables/marker_genes_top15_per_cluster.csv</code></p>
+<h2>5) Output Files</h2>
+<ul>
+<li>Figures: <code>outputs/figures/</code></li>
+<li>Tables: <code>outputs/tables/</code></li>
+<li>Report (Markdown): <code>outputs/report.md</code></li>
+<li>Report (HTML): <code>outputs/report.html</code></li>
+</ul>
+</body>
+</html>
