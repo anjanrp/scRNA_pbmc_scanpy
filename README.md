@@ -98,4 +98,4 @@ All outputs are saved to disk (figures + CSV tables), making runs easy to review
 
 ### HTML report 
 
-[Open HTML report](reports/report.html)
+[Open HTML report](outputs/report.html)
