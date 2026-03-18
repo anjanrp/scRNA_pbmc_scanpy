@@ -97,5 +97,6 @@ python pbmc_scanpy_baseline.py \
 All outputs are saved to disk (figures + CSV tables), making runs easy to review and share.
 
 ### HTML report 
+[Open HTML report](https://anjanrp.github.io/scRNA_pbmc_scanpy/)
 
-[Open HTML report](outputs/report.html)
+
